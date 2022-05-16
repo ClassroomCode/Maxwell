@@ -22,7 +22,14 @@ namespace ECommApp
         {
             base.OnConfiguring(optionsBuilder);
 
-            optionsBuilder.UseSqlServer(_connStr);
+            optionsBuilder
+                .UseSqlServer(_connStr)
+                .LogTo(Console.WriteLine);
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
