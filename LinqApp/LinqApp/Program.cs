@@ -10,9 +10,10 @@ namespace LinqApp
         {
             var nums = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8 };
 
-            var evens = nums.Where(i => i % 2 == 0);
+            var evens = nums.Where(n => n > 5);  
+            int c = evens.Count();
 
-            foreach (var num in evens) {
+            foreach (var num in evens) {             
                 Console.WriteLine(num);
             }
 
