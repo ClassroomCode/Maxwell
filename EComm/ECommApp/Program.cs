@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq;
 
 namespace ECommApp
@@ -11,10 +12,10 @@ namespace ECommApp
 
             var db = new ECommContext(connStr);
 
-            var products = db.Products.ToList();
+            var products = db.Products.Include(p => p.Supplier).ToList();
 
             foreach (var p in products) {
-                Console.WriteLine($"{p.ProductName} ({p.UnitPrice})");
+                Console.WriteLine($"{p.ProductName} ({p.UnitPrice:C}) - {p.Supplier?.CompanyName ?? "NONE"}");
             }
 
             Console.ReadKey();
