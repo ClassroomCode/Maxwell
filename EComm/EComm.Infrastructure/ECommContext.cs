@@ -29,9 +29,9 @@ namespace EComm.Infrastructure
 
         public IQueryable<Product> AllProducts() => Products;
 
-        public async Task<IEnumerable<MiniProduct>> GetResults(IQueryable<MiniProduct> q)
+        public async Task<IEnumerable<object>> GetResults(IQueryable<object> q)
         {
-            IEnumerable<MiniProduct> retVal = new MiniProduct[0];
+            IEnumerable<object> retVal = new object[0];
             try {
                 retVal = await q.ToArrayAsync();
             }

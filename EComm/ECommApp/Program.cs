@@ -2,6 +2,7 @@
 using EComm.Core;
 using EComm.Infrastructure;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -23,14 +24,19 @@ namespace ECommApp
 
             var theProducts = await db.GetResults(expensiveProducts);
 
-            //var p2 = db.Products.Where(p => p.UnitPrice > 20);
-
-            foreach (var p in theProducts) {
+            foreach (dynamic p in theProducts) {
+                //var mp = p as MiniProduct;
                 Console.WriteLine($"{p.Name} ({p.Price})");
             }
 
             Console.ReadKey();
         }
+    }
+
+    public class MiniProduct
+    {
+        public string Name { get; set; } = string.Empty;
+        public Decimal? Price { get; set; }
     }
 }
 

@@ -21,12 +21,6 @@ namespace EComm.Core
         public int SupplierId { get; set; }
         public Supplier? Supplier { get; set; }
     }
-
-    public class MiniProduct
-    {
-        public string Name { get; set; } = string.Empty;
-        public Decimal? Price { get; set; }
-    }
 }
 
 

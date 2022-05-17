@@ -13,6 +13,6 @@ namespace EComm.Abstractions
 
         IQueryable<Product> AllProducts();
 
-        Task<IEnumerable<MiniProduct>> GetResults(IQueryable<MiniProduct> q);
+        Task<IEnumerable<object>> GetResults(IQueryable<object> q);
     }
 }
