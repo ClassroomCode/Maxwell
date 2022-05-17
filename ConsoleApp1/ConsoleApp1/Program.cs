@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ConsoleApp1
 {
@@ -8,13 +9,7 @@ namespace ConsoleApp1
         {
             System.Int32 a = 1;
             Int32 b = 2;
-            int c = 3;
-
-            var d = 4.3;
-            
-            
-            dynamic e = 5;
-
+            var c;
 
             Console.WriteLine("Hello World!");
         }
