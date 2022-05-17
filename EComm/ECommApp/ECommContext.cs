@@ -17,6 +17,7 @@ namespace ECommApp
         }
 
         public DbSet<Supplier> Suppliers => Set<Supplier>();
+        public DbSet<Product> Products => Set<Product>();
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

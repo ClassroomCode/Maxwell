@@ -11,13 +11,14 @@ namespace ECommApp
 
             var db = new ECommContext(connStr);
 
-            var suppliers = db.Suppliers.ToList();
+            var products = db.Products.ToList();
 
-            foreach (var s in suppliers) {
-                Console.WriteLine(s.CompanyName);
+            foreach (var p in products) {
+                Console.WriteLine($"{p.ProductName} ({p.UnitPrice})");
             }
 
             Console.ReadKey();
         }
     }
 }
+
