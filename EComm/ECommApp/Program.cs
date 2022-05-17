@@ -12,14 +12,20 @@ namespace ECommApp
 
             var db = new ECommContext(connStr);
 
-            var products = db.Products.Include(p => p.Supplier).ToList();
+            var products = db.Products
+                .Where(p => p.UnitPrice > 20)
+                .Select(p => new { Name = p.ProductName, Price = p.UnitPrice });
+
+            //var p2 = db.Products.Where(p => p.UnitPrice > 20);
 
             foreach (var p in products) {
-                Console.WriteLine($"{p.ProductName} ({p.UnitPrice:C}) - {p.Supplier?.CompanyName ?? "NONE"}");
+                Console.WriteLine($"{p.Name} ({p.Price:C})");
             }
 
             Console.ReadKey();
         }
+
+      
     }
 }
 
