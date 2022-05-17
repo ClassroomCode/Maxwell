@@ -1,4 +1,5 @@
 ﻿using EComm.Abstractions;
+using EComm.Core;
 using EComm.Infrastructure;
 using System;
 using System.Linq;
@@ -12,21 +13,25 @@ namespace ECommApp
         {
             string connStr = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=EComm;Integrated Security=True";
 
-            IRepository db; // = new ECommContext(connStr);
+            IRepository db = RepositoryFactory.CreateRepository(connStr);
 
-            var products = db.Products
+            var products = db.AllProducts();
+
+            var expensiveProducts = products
                 .Where(p => p.UnitPrice > 20)
-                .Select(p => new { Name = p.ProductName, Price = p.UnitPrice })
-                .ToList();
+                .Select(p => new MiniProduct { Name = p.ProductName, Price = p.UnitPrice });
+
+            var theProducts = await db.GetResults(expensiveProducts);
 
             //var p2 = db.Products.Where(p => p.UnitPrice > 20);
 
-            foreach (var p in products) {
-                Console.WriteLine($"{p.Name} ({p.Price:C})");
+            foreach (var p in theProducts) {
+                Console.WriteLine($"{p.Name} ({p.Price})");
             }
 
             Console.ReadKey();
         }
     }
 }
+
 

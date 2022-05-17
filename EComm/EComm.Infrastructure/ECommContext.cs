@@ -1,4 +1,5 @@
-﻿using EComm.Core;
+﻿using EComm.Abstractions;
+using EComm.Core;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace EComm.Infrastructure
 {
-    public class ECommContext : DbContext
+    internal class ECommContext : DbContext, IRepository
     {
         private readonly string _connStr;
 
@@ -19,6 +20,26 @@ namespace EComm.Infrastructure
 
         public DbSet<Supplier> Suppliers => Set<Supplier>();
         public DbSet<Product> Products => Set<Product>();
+
+        public async Task<IEnumerable<Product>> GetAllProducts()
+        {
+            var retVal = await Products.ToArrayAsync();
+            return retVal; 
+        }
+
+        public IQueryable<Product> AllProducts() => Products;
+
+        public async Task<IEnumerable<MiniProduct>> GetResults(IQueryable<MiniProduct> q)
+        {
+            IEnumerable<MiniProduct> retVal = new MiniProduct[0];
+            try {
+                retVal = await q.ToArrayAsync();
+            }
+            catch {
+                //
+            }
+            return retVal;
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EComm.Abstractions\EComm.Abstractions.csproj" />
     <ProjectReference Include="..\EComm.Core\EComm.Core.csproj" />
   </ItemGroup>
 
