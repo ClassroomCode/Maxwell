@@ -1,20 +1,23 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EComm.Abstractions;
+using EComm.Infrastructure;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace ECommApp
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             string connStr = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=EComm;Integrated Security=True";
 
-            var db = new ECommContext(connStr);
+            IRepository db; // = new ECommContext(connStr);
 
             var products = db.Products
                 .Where(p => p.UnitPrice > 20)
-                .Select(p => new { Name = p.ProductName, Price = p.UnitPrice });
+                .Select(p => new { Name = p.ProductName, Price = p.UnitPrice })
+                .ToList();
 
             //var p2 = db.Products.Where(p => p.UnitPrice > 20);
 
@@ -24,8 +27,6 @@ namespace ECommApp
 
             Console.ReadKey();
         }
-
-      
     }
 }
 
