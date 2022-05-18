@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace EComm.Abstractions
 {
-    public interface IRepository
+    public interface IRepository : IDisposable
     {
-        Task<IEnumerable<Product>> GetAllProducts();
+        Task<IEnumerable<Product>> GetAllProducts(bool includeSupplier = false);
 
         IQueryable<Product> AllProducts();
 

@@ -4,6 +4,7 @@ using EComm.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ECommApp
@@ -16,6 +17,20 @@ namespace ECommApp
 
             IRepository db = RepositoryFactory.CreateRepository(connStr);
 
+            //var ps = await db.GetAllProducts(includeSupplier: true);
+
+            var p1 = db.AllProducts().Single(p => p.Id == 5);
+            Console.WriteLine(p1.ProductName);
+
+            Thread.Sleep(10000);
+
+            var p2 = db.AllProducts().Single(p => p.Id == 5);
+            Console.WriteLine(p2.ProductName);
+
+            Console.WriteLine("---------");
+            Console.WriteLine($"Same?  {p1 == p2}");
+
+            /*
             var products = db.AllProducts();
 
             var expensiveProducts = products
@@ -28,7 +43,7 @@ namespace ECommApp
                 //var mp = p as MiniProduct;
                 Console.WriteLine($"{p.Name} ({p.Price})");
             }
-
+            */
             Console.ReadKey();
         }
     }
