@@ -43,13 +43,24 @@ namespace EComm.Infrastructure
             return retVal;
         }
 
+        public async Task Save()
+        {
+            await this.SaveChangesAsync();
+        }
+
+        public void Attach(Product product)
+        {
+            this.Attach(product);
+            this.Entry(product).State = EntityState.Modified;
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
 
             optionsBuilder
-                .UseSqlServer(_connStr);
-                //.LogTo(Console.WriteLine);
+                .UseSqlServer(_connStr)
+                .LogTo(Console.WriteLine);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

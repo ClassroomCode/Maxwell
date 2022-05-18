@@ -14,5 +14,9 @@ namespace EComm.Abstractions
         IQueryable<Product> AllProducts();
 
         Task<IEnumerable<object>> GetResults(IQueryable<object> q);
+
+        void Attach(Product product);
+
+        Task Save();
     }
 }

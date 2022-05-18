@@ -26,7 +26,7 @@ namespace EComm.WebApp
         {
             var connStr = Configuration.GetConnectionString("ConnStr");
 
-            services.AddScoped(IRepository, _ => RepositoryFactory.CreateRepository(connStr));
+            services.AddScoped<IRepository>(_ => RepositoryFactory.CreateRepository(connStr));
 
             services.AddControllersWithViews();
         }
