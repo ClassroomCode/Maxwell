@@ -18,12 +18,12 @@ namespace ECommApp
             IRepository db = RepositoryFactory.CreateRepository(connStr);
 
             //var ps = await db.GetAllProducts(includeSupplier: true);
-
+   
             var p1 = db.AllProducts().Single(p => p.Id == 5);
             Console.WriteLine(p1.ProductName);
 
-            Thread.Sleep(10000);
-
+            //Thread.Sleep(10000);
+   
             var p2 = db.AllProducts().Single(p => p.Id == 5);
             Console.WriteLine(p2.ProductName);
 
@@ -54,5 +54,3 @@ namespace ECommApp
         public Decimal? Price { get; set; }
     }
 }
-
-

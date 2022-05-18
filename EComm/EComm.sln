@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EComm.Infrastructure", "ECo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EComm.Abstractions", "EComm.Abstractions\EComm.Abstractions.csproj", "{D82F4858-E5F1-4C58-AAA6-D41F40A01173}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EComm.WebApp", "EComm.WebApp\EComm.WebApp.csproj", "{ECE88D15-1DAB-459C-BE77-9EAF00F88C40}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D82F4858-E5F1-4C58-AAA6-D41F40A01173}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D82F4858-E5F1-4C58-AAA6-D41F40A01173}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D82F4858-E5F1-4C58-AAA6-D41F40A01173}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECE88D15-1DAB-459C-BE77-9EAF00F88C40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECE88D15-1DAB-459C-BE77-9EAF00F88C40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECE88D15-1DAB-459C-BE77-9EAF00F88C40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECE88D15-1DAB-459C-BE77-9EAF00F88C40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

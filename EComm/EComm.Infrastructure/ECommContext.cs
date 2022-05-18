@@ -48,8 +48,8 @@ namespace EComm.Infrastructure
             base.OnConfiguring(optionsBuilder);
 
             optionsBuilder
-                .UseSqlServer(_connStr)
-                .LogTo(Console.WriteLine);
+                .UseSqlServer(_connStr);
+                //.LogTo(Console.WriteLine);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
