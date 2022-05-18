@@ -6,3 +6,4 @@
 - Transactions and Savepoints [https://docs.microsoft.com/en-us/ef/core/saving/transactions]
 - Handling Concurrency Conflicts [https://docs.microsoft.com/en-us/ef/core/saving/concurrency]
 - Nullable reference types in EF [https://docs.microsoft.com/en-us/ef/core/miscellaneous/nullable-reference-types]
+- Dynamic queries with expression trees [https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/expression-trees/how-to-use-expression-trees-to-build-dynamic-queries]
