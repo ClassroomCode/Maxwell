@@ -26,6 +26,13 @@ namespace EComm.Infrastructure
             if (includeSupplier) { 
                 return await Products.Include(p => p.Supplier).ToArrayAsync();
             }
+            
+            //var retVal = await Products.FromSqlRaw("SELECT * FROM Products")
+            //    .Include(p => p.Supplier)
+            //    .Where(p => p.UnitPrice > 30).ToArrayAsync();
+
+            //return retVal;
+
             return await Products.ToArrayAsync();
         }
 
@@ -63,7 +70,7 @@ namespace EComm.Infrastructure
                 .LogTo(Console.WriteLine);
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder) 
         {
             base.OnModelCreating(modelBuilder);
         }
